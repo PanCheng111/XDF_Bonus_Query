@@ -1,0 +1,84 @@
+<template class="task-template">
+  <section id="ipc-section" class="section js-section u-category-communication">
+    <header class="communication">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-communication"></use></svg>
+          进程间通信
+        </h1>
+        <h3> Electron 通过 <code>ipc</code> (inter-process communication) 模块实现主进程和渲染进程之间的同步和异步通信</h3>
+
+        <p>两个进程中都包含 IPC 的子模块 <code>ipcMain</code> 以及 <code>ipcRenderer</code>的实现.</p>
+        <p>详情查看 <a href="http://electron.atom.io/docs/api/ipc-main">主进程通信<span class="u-visible-to-screen-reader">(在线文档)</span></a> 以及<a href="http://electron.atom.io/docs/api/ipc-renderer/">渲染进程<span class="u-visible-to-screen-reader">(在线文档)</span></a></p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="async-msg-demo-toggle" class="js-container-target demo-toggle-button">异步通信
+          <div class="demo-meta u-avoid-clicks">支持: Win, OS X, Linux <span class="demo-meta-divider">|</span> 进程: 都支持</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="async-msg">哼</button>
+            <span class="demo-response" id="async-reply"></span>
+          </div>
+          <p>Electron 推荐使用<code>ipc</code>的异步传递信息的方式，如此不会阻塞进程内部的其他操作。
+          <p>这个 🌰 从本进程（渲染进程）异步向主进程发送了一个“哼”，主进程处理结束后会返回一个“哈”</p>
+          <h5>渲染进程</h5>
+          <pre><code data-path="renderer-process/communication/async-msg.js"></pre></code>
+          <h5>主进程</h5>
+          <pre><code data-path="main-process/communication/async-msg.js"></code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="sync-msg-demo-toggle" class="js-container-target demo-toggle-button">同步通信
+          <div class="demo-meta u-avoid-clicks">支持: Win, OS X, Linux <span class="demo-meta-divider">|</span> 进程: Both</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="sync-msg">哼</button>
+            <span class="demo-response" id="sync-reply"></span>
+          </div>
+          <p>你当然也可以使用<code>ipc</code>模块的同步通信机制来传递信息，但是一定要注意，同步通信意味着这次操作完成之前，其他操作都被<b>阻塞</b></p>
+          <p>这个 🌰 从本进程（渲染进程）同步向主进程发送了一个“哼”，主进程处理结束后会返回一个“哈”<</p>
+          <h5>渲染进程</h5>
+          <pre><code data-path="renderer-process/communication/sync-msg.js"></pre></code>
+          <h5>主进程</h5>
+          <pre><code data-path="main-process/communication/sync-msg.js"></code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="invis-msg-demo-toggle" class="js-container-target demo-toggle-button">与隐藏窗口通信
+          <div class="demo-meta u-avoid-clicks">支持: Win, OS X, Linux <span class="demo-meta-divider">|</span> 进程: Both</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="invis-msg">点我计算100!</button>
+            <span class="demo-response" id="invis-reply"></span>
+          </div>
+          <p>这是一个在不妨碍当前进程操作的前提下进行系统处理的奇技淫巧。（牛逼一点说，叫并发，译者注）</p>
+          <p>在这个 🌰 中，调用<code>remote</code>模块从渲染进程中创建出一个苦逼进程（含透明窗口，实际还是一个渲染进程），创建完成以后，通过<code>ipc</code>模块向苦逼进程发送开始干活指令，干完以后返回结果给渲染进程</p>
+          <p>渲染进程收到结果后展示，同时关闭掉苦逼进程</p>
+          <h5>渲染进程</h5>
+          <pre><code data-path="renderer-process/communication/invisible-msg.js"></pre></code>
+          <h5>苦逼进程（干活还不留名，不苦逼可咋地，译者注）</h5>
+          <pre><code data-path="sections/communication/invisible.html"></code></pre>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/communication/sync-msg')
+      require('./renderer-process/communication/async-msg')
+      require('./renderer-process/communication/invisible-msg')
+    </script>
+
+  </section>
+</template>

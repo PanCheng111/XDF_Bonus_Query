@@ -1,0 +1,64 @@
+<template class="task-template">
+  <section id="ex-links-file-manager-section" class="section js-section u-category-native-ui">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-native-ui"></use></svg>
+          打开外链或者文件系统
+        </h1>
+        <h3>Electron 的 <code>shell</code> 模块提供了打开系统内置文件系统以及打开默认浏览器的功能.</h3>
+
+        <p>这个模块在主进程和渲染进程中都可以使用</p>
+        <p>详情查看 <a href="http://electron.atom.io/docs/api/shell">shell在线文档<span class="u-visible-to-screen-reader">(将在新窗口打开)</span></a></p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="open-file-manager-demo-toggle" class="js-container-target demo-toggle-button">打开系统自带文件系统
+          <div class="demo-meta u-avoid-clicks">支持: Win, OS X, Linux <span class="demo-meta-divider">|</span> 进程: 两个都支持</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="open-file-manager">点我看效果</button>
+          </div>
+          <p>这个 🌰 展示了系统使用<code>shell</code> 模块来打开指定路径</p>
+          <p>点击按钮以后会打开你的系统根目录</p>
+          <h5>渲染进程实现</h5>
+          <pre><code data-path="renderer-process/native-ui/ex-links-file-manager/file-manager.js"></pre></code>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="open-ex-links-demo-toggle" class="js-container-target demo-toggle-button">打开外链
+          <div class="demo-meta u-avoid-clicks">支持系统: Win, OS X, Linux <span class="demo-meta-divider">|</span> 进程: 两个都支持</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="open-ex-links">点我看效果</button>
+          </div>
+          <p>如果你不想在窗口 <em>内部</em> 打开某个链接，你可以使用 <code>shell</code> 模块在默认浏览器中打开.</p>
+          <p>点击 🌰 按钮，就能在默认浏览器里打开 Electron 的官网.<p>
+          <h5>渲染进程实现</h5>
+          <pre><code data-path="renderer-process/native-ui/ex-links-file-manager/ex-links.js"></pre></code>
+
+          <div class="demo-protip">
+            <h2>友情提示</h2>
+            <strong>外链不要在 APP 内部打开</strong>
+            <p>你可能想要将所有的 <code>http</code> 以及 <code>https</code> 请求都放在外部浏览器中.实现这种全局化的配置，可以过滤整个文件后，提取出链接文件并进行配置.本 APP 的实现方案在 <code>assets/ex-links.js</code>.</h5>
+            <h5>渲染进程实现</h5>
+            <pre><code data-path="assets/ex-links.js"></pre></code>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/native-ui/ex-links-file-manager/file-manager')
+      require('./renderer-process/native-ui/ex-links-file-manager/ex-links')
+    </script>
+
+  </section>
+</template>

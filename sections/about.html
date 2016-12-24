@@ -1,0 +1,30 @@
+<template class="task-template">
+  <div id="about-modal" class="about modal">
+    <div class="about-wrapper">
+      <header class="about-header">
+        <img class="about-logo" src="assets/img/about.png" srcset="assets/img/about.png 1x, assets/img/about@2x.png 2x" alt="Electron API Demos">
+      </header>
+      <main class="about-sections">
+        <section class="about-section play-along">
+          <h2>关于这个项目</h2>
+            <p>本项目作为我的第一个Electron项目还是非常不错的。本项目已经上传至<a href="https://github.com/PanCheng111/">Github</a>，可供有兴趣之人参考。</p> 
+<pre><code class="language-bash">$ git clone https://github.com/PanCheng111/XDF_Personal_Analysis
+$ cd XDF_Personal_Analysis
+$ npm install &amp;&amp; npm start
+</code></pre>
+        </section>
+        <section class="about-section about-code">
+          <h2>简单介绍一下本项目的代码</h2>
+            <p>本文档的 <a href="https://github.com/electron/electron-api-demos">源码<span class="u-visible-to-screen-reader">(将会在新页面打开)</span></a> 经过了缜密的重排。</p>
+
+            <p>几乎所有(超过 90%) 的代码使用了 <a href="http://babeljs.io/docs/learn-es2015/">ES2015<span class="u-visible-to-screen-reader">(将会在新页面打开)</span></a> 新特性，与此同时， <em>也没有引入预编译器，</em> 因为 Electron 集成了 <a href="https://developers.google.com/v8/">V8<span class="u-visible-to-screen-reader">(将会在新页面打开)</span></a> 内核</p>
+        </section>
+        <footer class="about-section footer">
+          <div class="rainbow-button-wrapper">
+            <button id="get-started" class="about-button modal-hide">点我开始</button>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </div>
+</template>

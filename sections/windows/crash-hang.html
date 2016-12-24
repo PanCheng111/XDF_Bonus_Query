@@ -1,0 +1,70 @@
+<template class="task-template">
+  <section id="crash-hang-section" class="section js-section u-category-windows">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
+          处理窗口崩溃和挂机
+        </h1>
+        <h3>当窗口崩溃或死掉的时候<code>BrowserWindow</code> 模块会监听到并发布事件. 你可监听这些事件，完事儿让用户来决定是关闭，重启还是刷新.</h3>
+
+        <p>详情查看<a href="http://electron.atom.io/docs/api/browser-window">官方文档<span class="u-visible-to-screen-reader">(将会在新页面打开)</span></a></p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">崩溃后重启
+          <div class="demo-meta u-avoid-clicks">支持系统: Win, OS X, Linux <span class="demo-meta-divider">|</span> 进程: Main</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="process-crash">点我看效果</button>
+          </div>
+          <p>这个 🌰 中(使用 <code>remote</code> 模块)创建了一个窗口，并提供一个可以让窗口崩溃的的链接，用了 <code>process.crash()</code>方法</p>
+          
+          <p>窗口时刻监听崩溃事件，当崩溃触发时，会弹窗问用户，重启还是关闭</p>
+
+          <h5>代码</h5>
+          <pre><code data-path="renderer-process/windows/process-crash.js"></pre></code>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">死机以后重启
+          <div class="demo-meta u-avoid-clicks">支持系统: Win, OS X, Linux <span class="demo-meta-divider">|</span> 进程: Main</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="process-hang">点我看效果</button>
+          </div>
+           <p>这个 🌰 中(使用 <code>remote</code> 模块)创建了一个窗口，并提供一个可以让窗口崩溃的的链接，用了 <code>process.hang()</code>方法</p>
+          
+          <p>主进程会监听窗口的假死，一旦出现，就会弹窗问用户重启还是关闭</p>
+
+          <h5>代码</h5>
+          <pre><code data-path="renderer-process/windows/process-hang.js"></pre></code>
+
+          <div class="demo-protip">
+            <h2>友情提示</h2>
+            <strong>等待程序响应</strong>
+            <p>解决死机的另外一种方案就是等待响应, 这会给程序恢复提供机会. 可以使用 <code>BrowserWindow</code> 中的 'responsive' 事件实现这个功能.</p>
+            <pre><code class="language-js">win.on('responsive', function () {
+  // 当程序恢复的时候，进行的操作
+})</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+      require('./renderer-process/windows/process-crash')
+      require('./renderer-process/windows/process-hang')
+    </script>
+
+  </section>
+</template>

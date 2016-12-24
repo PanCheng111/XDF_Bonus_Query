@@ -1,0 +1,57 @@
+<template class="task-template">
+  <section id="class-import-section" class="section js-section u-category-menu">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-menu"></use></svg>
+          导入课程数据
+        </h1>
+        <h3> 在本页面导入 <code>Excel</code> 格式（xls/xlsx）的课程数据。</h3>
+
+        <p>需要给出每个课程的详细信息，包括班级编码、授课教师、原班人数、续班人数、续班率、课时等等，以便生成每门课程和教师的奖金查询结果。</p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="print-pdf-demo-toggle" class="js-container-target demo-toggle-button">Excel格式要求
+          <div class="demo-meta u-avoid-clicks">支持: xls, xlsx </div>
+        </button>
+        <div class="demo-box">
+          <p>这里给出对导入文件的格式示例，只有满足如下示例的Excel文件才能被本应用正确识别。</p>
+          <table class="table">
+            <tr>
+              <td>班级编码</td><td>……省略字段</td><td>授课教师</td><td>原班人数</td><td>续班人数</td><td>续班率</td><td>课时</td>
+            </tr>
+            <tr>
+              <td>GZD163037</td><td>……</td><td>张三</td><td>10</td><td>12</td><td>0.5</td><td>27</td>
+            </tr>
+            <tr>
+              <td>GZD163038</td><td>……</td><td>李四</td><td>20</td><td>20</td><td>0.8</td><td>27</td>
+            </tr>
+          </table> 
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="print-pdf-demo-toggle" class="js-container-target demo-toggle-button">导入Excel数据
+          <div class="demo-meta u-avoid-clicks">支持: xls, xlsx </div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="select-class-import">点我导入数据</button>
+            <span class="demo-response is-selectable" id="selected-class-import-file"></span>
+          </div>
+          <div id = 'displayed-class-import-file'> </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/class/class-import');
+    </script>
+
+  </section>
+</template>

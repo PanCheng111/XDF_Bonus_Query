@@ -1,0 +1,64 @@
+<template class="task-template">
+  <section id="shortcuts-section" class="section js-section u-category-menu">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-menu"></use></svg>
+          快捷键
+        </h1>
+
+        <h3>系统中 <code>globalShortcut</code> 以及 <code>Menu</code> 都可以配置快捷键</h3>
+
+        <p>
+          Electron 中将快捷键称作加速器，（shortcuts->accelerators，这么翻译有点傻逼，译者注)这些快捷键可以设置为应用内生效，也可以设置为全局生效。
+        </p>
+
+        <p>
+          详情查看
+          <a class="u-exlink" href="http://electron.atom.io/docs/api/menu">菜单</a>,
+          <a class="u-exlink" href="http://electron.atom.io/docs/api/accelerator">快捷键</a>,
+          以及
+          <a class="u-exlink" href="http://electron.atom.io/docs/api/global-shortcut">全局快捷键</a>
+          的 API
+        </p>
+
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="shortcuts-demo-toggle" class="js-container-target demo-toggle-button">注册一个全局快捷键
+          <div class="demo-meta u-avoid-clicks">支持系统: Win, OS X, Linux <span class="demo-meta-divider">|</span> 进程: Main</div>
+        </button>
+        <div class="demo-box">
+          <p>
+            按下 <kbd class="normalize-to-platform">ctrl/⌘+Alt+K</kbd> 来感受一下这个 🌰
+          </p>
+
+          <p>
+            全局的快捷键是在程序失去焦点以后才生效的，而且，应用必须处于 ready 状态
+          </p>
+
+          <h5>主程序代码</h5>
+          <pre><code data-path="main-process/menus/shortcuts.js"></pre></code>
+
+          <div class="demo-protip">
+            <h2>友情提示</h2>
+            <strong>避免与全局其他快捷键冲突</strong>
+            <p>
+              设计全局快捷键的时候，要避开系统默认的全局快捷键，了解现有的快捷键可以查看下边的参考文献：
+            </p>
+
+            <ul>
+              <li><a class="u-exlink" href="https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/Keyboard.html">OS X</a></li>
+              <li><a class="u-exlink" href="http://windows.microsoft.com/en-us/windows-10/keyboard-shortcuts">Windows</a></li>
+              <li><a class="u-exlink" href="https://developer.gnome.org/hig/stable/keyboard-input.html.en">Linux</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+</template>

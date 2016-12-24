@@ -1,0 +1,59 @@
+<template class="task-template">
+  <section id="clipboard-section" class="section js-section u-category-system">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-system"></use></svg>
+          剪贴板
+        </h1>
+        <h3><code>clipboard</code> 模块用于支持复制粘贴</h3>
+        <p>模块中包含格式化粘贴</p>
+
+        <p>详情查看 <a href="http://electron.atom.io/docs/api/clipboard">clipboard 模块<span class="u-visible-to-screen-reader">(在线文档)</span></a> </p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="copy-to-demo-toggle" class="js-container-target demo-toggle-button">复制
+          <div class="demo-meta u-avoid-clicks">支持: Win, OS X, Linux <span class="demo-meta-divider">|</span> 进程: Both</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="copy-to">复制</button>
+            <input class="demo-input" id="copy-to-input" aria-label="Click copy" placeholder="点击复制."></input>
+          </div>
+          <p>
+            🌰 中复制了一段文字到系统剪贴板，随后可以粘贴到一处进行验证
+          </p>
+          <h5>渲染进程</h5>
+          <pre><code data-path="renderer-process/system/copy.js"></pre></code>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="paste-to-demo-toggle" class="js-container-target demo-toggle-button">粘贴
+          <div class="demo-meta u-avoid-clicks">支持: Win, OS X, Linux <span class="demo-meta-divider">|</span> Both: Both</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="paste-to">粘贴</button>
+            <span class="demo-response" id="paste-from"></span>
+          </div>
+          <p>🌰 中复制了一段文字到系统剪贴板，随后可以粘贴到一处进行验证.</p>
+
+          <h5>渲染进程</h5>
+          <pre><code data-path="renderer-process/system/paste.js"></pre></code>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/system/copy')
+      require('./renderer-process/system/paste')
+    </script>
+
+  </section>
+</template>

@@ -1,0 +1,57 @@
+<template class="task-template">
+  <section id="full-import-section" class="section js-section u-category-windows">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
+          导入每位教师满班基准
+        </h1>
+        <h3> 在本页面导入 <code>Excel</code> 格式（xls/xlsx）的各位教师的姓名和对应的满班基准人数。</h3>
+
+        <p>需要给出每位老师的姓名，同时指出对应的满班基准人数，以便生成每位老师的奖金查询结果。</p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="print-pdf-demo-toggle" class="js-container-target demo-toggle-button">Excel格式要求
+          <div class="demo-meta u-avoid-clicks">支持: xls, xlsx </div>
+        </button>
+        <div class="demo-box">
+          <p>这里给出对导入文件的格式示例，只有满足如下示例的Excel文件才能被本应用正确识别。</p>
+          <table class="table">
+            <tr>
+              <td>姓名</td><td>满班基准</td>
+            </tr>
+            <tr>
+              <td>张三</td><td>40</td>
+            </tr>
+            <tr>
+              <td>李四</td><td>30</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="print-pdf-demo-toggle" class="js-container-target demo-toggle-button">导入Excel数据
+          <div class="demo-meta u-avoid-clicks">支持: xls, xlsx </div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="select-full-import">点我导入数据</button>
+            <span class="demo-response is-selectable" id="selected-full-import-file"></span>
+          </div>
+          <div id = 'displayed-full-import-file'> </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/full/full-import');
+    </script>
+
+  </section>
+</template>

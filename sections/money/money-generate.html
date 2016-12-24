@@ -1,0 +1,39 @@
+<template class="task-template">
+  <section id="money-generate-section" class="section js-section u-category-system">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-system"></use></svg>
+          导出所有课程的奖金
+        </h1>
+        <h3> 在本页面导出 <code>Excel</code> 格式（xls/xlsx）的每门课程对应的奖金数，加在原先课程数据的末尾。</h3>
+
+        <p>请选择奖金标准类型：
+          <input type="radio" name="generate_money_level" value="0">暑续秋</input>
+          <input type="radio" name="generate_money_level" value="1">非暑续秋</input>
+        </p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="print-pdf-demo-toggle" class="js-container-target demo-toggle-button">导出所有课程奖金
+          <div class="demo-meta u-avoid-clicks">支持: Win, OS X, Linux | 格式: xls, xlsx</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="select-money-generate">点我导出数据</button>
+            <span class="demo-response is-selectable" id="selected-money-generate-file"></span>
+          </div>
+          <p>请您指定一个文件夹，本应用会将课程奖金表格写入到该文件夹。</p>
+          <div id = 'displayed-money-generate-file'> </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/money/money-generate');
+    </script>
+
+  </section>
+</template>

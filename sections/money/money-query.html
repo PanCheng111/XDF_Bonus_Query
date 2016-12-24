@@ -1,0 +1,50 @@
+<template class="task-template">
+  <section id="money-query-section" class="section js-section u-category-system">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-system"></use></svg>
+          查询相关奖金数值
+        </h1>
+        <h3> 在本页面查询 <code>单个课程</code> 或 <code>单个教师</code>的奖金数值。</h3>
+
+        <p>需要给出具体课程的课程编码，或者是具体教师的姓名，以便查询具体的奖金数值。其中教师的查询可以给出不同课程的明细与总和。</p>
+        <p>请选择奖金标准类型：
+          <input type="radio" name="query_money_level" value="0">暑续秋</input>
+          <input type="radio" name="query_money_level" value="1">非暑续秋</input>
+        </p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="print-pdf-demo-toggle" class="js-container-target demo-toggle-button">课程奖金查询
+          <div class="demo-meta u-avoid-clicks">支持: 单个课程查询 </div>
+        </button>
+        <div class="demo-box">
+            <input type="text" id="input-money-query-class" class="demo-input" />
+            <button class="demo-button" id="select-money-query-class">查询</button>
+            <div id="display-money-query-class"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="print-pdf-demo-toggle" class="js-container-target demo-toggle-button">教师奖金查询
+          <div class="demo-meta u-avoid-clicks">支持: 单个教师查询 </div>
+        </button>
+        <div class="demo-box">
+            <input type="text" id="input-money-query-teacher"  class="demo-input" />
+            <button class="demo-button" id="select-money-query-teacher">查询</button>
+            <div id="display-money-query-teacher"></div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/money/money-query');
+    </script>
+
+  </section>
+</template>

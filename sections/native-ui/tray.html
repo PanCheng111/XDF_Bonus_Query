@@ -1,0 +1,48 @@
+<template class="task-template">
+  <section id="tray-section" class="section js-section u-category-native-ui">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-native-ui"></use></svg>
+          系统托盘
+        </h1>
+        <h3>Electron 的 <code>tray</code> 模块支持将APP的 icon放入系统通知中心.</h3>
+        <p>icon 还包含了一个右键菜单.</p>
+
+        <p>详情查看 <a href="http://electron.atom.io/docs/api/tray">tray 的官方文档<span class="u-visible-to-screen-reader">(将会在新窗口打开)</span></a> </p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="tray-demo-toggle" class="js-container-target demo-toggle-button">系统托盘
+          <div class="demo-meta u-avoid-clicks">支持: Win, OS X, Linux | 进程: Main</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="put-in-tray">点我看效果</button>
+            <span class="demo-response" id="tray-countdown"></span>
+          </div>
+          <p>这个 🌰 中使用  <code>ipc</code> 模块向主进程发起了一个信息请求，请求放入托盘，同意以后就放进去了</p>
+
+          <p>在系统托盘里，右键点击，能够从托盘里移出</p>
+          <h5>主进程</h5>
+          <pre><code data-path="main-process/native-ui/tray/tray.js"></pre></code>
+          <h5>渲染进程</h5>
+          <pre><code data-path="renderer-process/native-ui/tray/tray.js"></pre></code>
+
+          <div class="demo-protip">
+            <h2>友情提示</h2>
+            <strong> Linux 中的系统托盘</strong>
+            <p>部分 Linux 的发布版里面只有 APP 指示器, 为了实现系统托盘的样式，你需要给系统安装 <code>libappindicator1</code> 详情查看 <a href="http://electron.atom.io/docs/api/tray">系统托盘的在线文档<span class="u-visible-to-screen-reader">(新窗口打开)</span></a> </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/native-ui/tray/tray')
+    </script>
+
+  </section>
+</template>

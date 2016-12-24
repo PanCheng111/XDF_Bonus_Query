@@ -1,0 +1,38 @@
+<template class="task-template">
+  <section id="class-manual-section" class="section js-section u-category-menu">
+    <header class="section-header">
+       <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-menu"></use></svg>
+          录入课程数据
+        </h1>
+        <h3> 在本页面录入 <code>Excel</code> 格式（xls/xlsx）的课程数据。</h3>
+
+        <p>需要给出每个课程的详细信息，包括班级编码、授课教师、原班人数、续班人数、续班率、课时等等，以便生成每门课程和教师的奖金查询结果。</p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="print-pdf-demo-toggle" class="js-container-target demo-toggle-button">暂未开放此功能
+          <div class="demo-meta u-avoid-clicks">支持: Win, OS X, Linux | 进程: Renderer</div>
+        </button>
+        <div class="demo-box">
+          <!--<div class="demo-controls">
+            <button class="demo-button" id="screen-shot">点我截图</button>
+            <span class="demo-response is-selectable" id="screenshot-path"></span>
+          </div>
+          <p>🌰 中调用<code>desktopCapturer</code> 模块对全屏做了个截图</p>
+          <p>点击截图可以截图，同时会用系统默认应用打开这个截图</p>
+          <h5>渲染进程</h5>
+          <pre><code data-path="renderer-process/media/desktop-capturer.js"></pre></code>-->
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/class/class-manual');
+    </script>
+
+  </section>
+</template>

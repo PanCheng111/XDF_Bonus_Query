@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/nativize.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/about.css">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="assets/css/section.css">
+  <link rel="stylesheet" href="assets/css/demo.css">
+  <link rel="stylesheet" href="assets/css/github.css">
+
+  <link rel="import" href="sections/about.html">
+  <link rel="import" href="sections/windows/windows.html">
+
+  <link rel="import" href="sections/full/full-import.html">
+  <link rel="import" href="sections/full/full-manual.html">
+  <link rel="import" href="sections/class/class-import.html">
+  <link rel="import" href="sections/class/class-manual.html">
+  <link rel="import" href="sections/money/money-query.html">
+  <link rel="import" href="sections/money/money-generate.html">
+
+</head>
+<body>
+
+  <nav class="nav js-nav">
+    <header class="nav-header">
+      <h1 class="nav-title">新东方 <strong>奖金查询系统</strong></h1>
+      <svg class="nav-header-icon"><use xlink:href="assets/img/icons.svg#icon-electron"></use></svg>
+    </header>
+
+    <div class="nav-item u-category-windows">
+      <h5 class="nav-category">
+        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
+        满班基准
+      </h5>
+      <button type="button" id="button-full-import" data-section="full-import" class="nav-button">导入本次 <em>满班基准</em></button>
+      <button type="button" id="button-full-manual" data-section="full-manual" class="nav-button">直接录入 <em>满班基准</em></button>
+    </div>
+
+    <div class="nav-item u-category-menu">
+      <h5 class="nav-category">
+        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-menu"></use></svg>
+        课程数据
+      </h5>
+      <button type="button" id="button-class-import" data-section="class-import" class="nav-button">导入本次 <em>课程数据</em> </button>
+      <button type="button" id="button-class-manual" data-section="class-manual" class="nav-button">直接录入 <em>课程数据</em></button>
+    </div>
+
+
+    <div class="nav-item u-category-system">
+      <h5 class="nav-category">
+        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-system"></use></svg>
+        奖金查询
+      </h5>
+      <button type="button" id="button-money-query" data-section="money-query" class="nav-button">查询相关 <em>奖金数值</em> </button>
+      <button type="button" id="button-money-generate" data-section="money-generate" class="nav-button">导出全部 <em>奖金数值</em></button>
+    </div>
+
+
+<!--
+    <div class="nav-item u-category-native-ui">
+      <h5 class="nav-category">
+        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-native-ui"></use></svg>
+        分析
+      </h5>
+      <button type="button" id="button-analysis-generate" data-section="analysis-generate" class="nav-button">生成学生 <em>个性化分析</em> </button>
+      <button type="button" id="button-analysis-query" data-section="analysis-query" class="nav-button">查询学生 <em>个性化分析</em></button>
+    </div>
+
+    <div class="nav-item u-category-media">
+      <h5 class="nav-category">
+        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-media"></use></svg>
+        方案
+      </h5>
+      <button type="button" id="button-practice-generate" data-section="practice-generate" class="nav-button">生成学生 <em>错题训练</em> </button>
+      <button type="button" id="button-practice-query" data-section="practice-query" class="nav-button">查询学生 <em>错题训练</em></button>
+    </div>
+    -->
+
+
+    <footer class="nav-footer">
+      <button type="button" id="button-about" data-modal="about" class="nav-footer-button">关于</button>
+      <a class="nav-footer-logo" href="https://github.com/PanCheng111" aria-label="Homepage">
+        <svg class="nav-footer-icon"><use xlink:href="assets/img/icons.svg#icon-love"></use></svg>
+      </a>
+    </footer>
+  </nav>
+
+  <main class="content js-content"></main>
+
+  <script>
+    require('./assets/imports')
+    require('./assets/ex-links')
+    require('./assets/nav')
+    require('./assets/demo-btns')
+    require('./assets/code-blocks')
+    require('./assets/normalize-shortcuts')
+  </script>
+</body>
+</html>

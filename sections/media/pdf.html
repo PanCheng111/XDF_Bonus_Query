@@ -1,0 +1,47 @@
+<template class="task-template">
+  <section id="pdf-section" class="section js-section u-category-media">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-media"></use></svg>
+          保存为 PDF
+        </h1>
+        <h3>Electron <code>browser window</code>  模块中包含 <code>webContents</code>方法，通过这个方法可以打印当前的页面，同时也可以保存为 PDF 文件</h3>
+
+        <p>详情查看 <a href="http://electron.atom.io/docs/api/web-contents/#webcontentsprintoptions"> webContents <span class="u-visible-to-screen-reader">(在线文档)</span></a> </p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="print-pdf-demo-toggle" class="js-container-target demo-toggle-button">另存为 PDF
+          <div class="demo-meta u-avoid-clicks">支持: Win, OS X, Linux</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="print-pdf">点我另存</button>
+            <span class="demo-response is-selectable" id="pdf-path"></span>
+          </div>
+          <p>🌰 中 将本页保存为 PDF，如果有默认 PDF 浏览器，会打开这个 PDF</p>
+          <p>生产中，可以将这个功能添加到菜单栏，这里只是做了个 🌰 </p>
+          <h5>渲染进程</h5>
+          <pre><code data-path="renderer-process/media/pdf.js"></pre></code>
+          <h5>主进程</h5>
+          <pre><code data-path="main-process/media/pdf.js"></code></pre>
+
+          <div class="demo-protip">
+            <h2>友情提示</h2>
+            <strong>使用打印样式.</strong>
+            <p>可以为系统设定打印样式，对于 HTML 来讲，这不是费劲的事儿。本应用使用的CSS 在<code>assets/css/print.css</code>.</p>
+            <pre><code data-path="assets/css/print.css"></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/media/pdf')
+    </script>
+
+  </section>
+</template>
